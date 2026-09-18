@@ -57,8 +57,11 @@ public class Commande {
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
-    public String totalPrix() {
-        int total = getPrix()* getQuantite();
-        return total;
+
+    public double getTotal() {
+        return vetement.stream()
+                .mapToDouble(e -> e.getPrix())
+                .sum();
     }
+
 }
